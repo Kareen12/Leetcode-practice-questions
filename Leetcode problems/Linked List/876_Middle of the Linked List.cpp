@@ -8,6 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+//APPROACH 1
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
@@ -21,5 +23,29 @@ public:
                }
            }
            return slow;       
+    }
+};
+
+//APPROACH 2    
+class Solution {
+public:
+    int findLength(ListNode* &head){
+        int i=0;
+        ListNode* temp = head;
+        while(temp != NULL){
+            temp=temp->next;
+            i++;
+        }
+        return i;
+    }
+    ListNode* middleNode(ListNode* head) {
+        int len = findLength(head);
+            len =len/2;
+            for(int i=0;i<len;i++){
+                head=head->next;
+            }
+        
+        
+        return head;
     }
 };
